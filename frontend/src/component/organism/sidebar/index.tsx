@@ -32,7 +32,7 @@ export const useIsSidebarOpenValue = () => useRecoilValue(isOpenAtom);
 const MenuItem = ({ Icon, text, path }: MenuItem) => {
   const isSidebarOpen = useIsSidebarOpenValue();
   const route = useRouter();
-  const isTooltipDisabled = !isSidebarOpen;
+  const isTooltipDisabled = isSidebarOpen;
 
   const menuItem = styler(styles.menuitem);
 
