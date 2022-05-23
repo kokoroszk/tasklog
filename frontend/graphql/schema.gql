@@ -1,0 +1,74 @@
+type Mutation {
+  updateIssue(issueId: Int!, issueStatus: Int!, assigneeId: String, dueDate: DateTime, comment: String!): Issue
+  createIssue(
+    title: String!
+    description: String!
+    issueKind: Int!
+    assigneeId: String
+    dueDate: DateTime
+    issueCategories: [Int!]!
+  ): Issue
+}
+
+# A change log of a issue.
+type ChangeLog {
+  id: Int!
+  comment: String!
+  dueDate: DateTime
+  createdAt: DateTime!
+  issue: Issue!
+  assignee: User
+  project: Project!
+  createdBy: User!
+  status: Int!
+  kind: Int!
+}
+
+scalar DateTime
+
+# A issue in this system.
+type Issue {
+  id: Int!
+  projectId: String!
+  title: String!
+  description: String!
+  dueDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  kind: Int!
+  status: Int!
+  createdBy: User!
+  assignee: User
+  categories: [IssueCategory!]!
+  changeLogs: [ChangeLog!]!
+}
+
+# A category of a issue.
+type IssueCategory {
+  id: Int!
+  name: String!
+}
+
+# A project in this system.
+type Project {
+  id: String!
+  name: String!
+}
+
+type Query {
+  issues(issueIds: [Int!]): [Issue!]!
+  currentUser: User
+  projectChangeLogs: [ChangeLog!]!
+  users: [User!]!
+  issueCategories: [IssueCategory!]!
+}
+
+# A user in this system.
+type User {
+  id: String!
+  name: String!
+  icon: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  project: Project!
+}

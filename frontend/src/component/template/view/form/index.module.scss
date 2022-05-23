@@ -1,0 +1,127 @@
+.form {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  width: calc(100% - 50px);
+  margin-left: -34px;
+  background-color: white;
+  padding: 5px 17px 5px 34px;
+  box-shadow: -1px -1px 1px rgb(0 0 0 / 28%);
+
+  &.sidebarOpened {
+    width: calc(100% - 230px);
+  }
+}
+
+.form.close {
+  height: 80px;
+  column-gap: 20px;
+  .fold,
+  .properties,
+  .buttonArea {
+    display: none;
+  }
+  .inputArea {
+    display: flex;
+    column-gap: 10px;
+    width: 100%;
+    font-size: 0.9em;
+  }
+  .comment {
+    height: 40px;
+    width: 80%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .changeStatus {
+    border-left: 1px solid gray;
+    padding: 0px 10px;
+    min-width: 150px;
+
+    .button {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      .icon {
+        height: 20px;
+        color: gray;
+      }
+      &:hover {
+        background-color: rgb(30, 144, 255, 0.2);
+        & .icon {
+          color: dodgerblue;
+        }
+      }
+    }
+  }
+}
+
+.open.form {
+  flex-direction: column;
+  row-gap: 20px;
+  height: 520px;
+
+  .changeStatus {
+    display: none;
+  }
+
+  .fold {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    cursor: row-resize;
+    .icon {
+      height: 20px;
+    }
+  }
+  .inputArea {
+    display: flex;
+    column-gap: 30px;
+    width: 100%;
+    .comment {
+      width: 65%;
+      margin-bottom: 20px;
+    }
+    .properties {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      width: 30%;
+    }
+  }
+}
+
+.buttonArea {
+  display: flex;
+  position: absolute;
+  column-gap: 10px;
+  bottom: 20px;
+}
+
+.form.preview {
+  flex-direction: column;
+  padding-top: 15px;
+  row-gap: 20px;
+  height: 100px;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -10px;
+    right: 50%;
+    box-shadow: -1px -1px 1px rgb(0 0 0 / 28%);
+  }
+
+  .message {
+    font-size: 0.9em;
+  }
+}

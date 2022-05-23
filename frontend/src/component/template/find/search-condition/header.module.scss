@@ -1,0 +1,111 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  white-space: nowrap;
+
+  .leftside {
+    display: flex;
+    column-gap: 15px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    .accordion {
+      display: flex;
+      align-items: center;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+
+      .accordionicon {
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-top: solid 2px dodgerblue;
+        border-right: solid 2px dodgerblue;
+        margin-right: 10px;
+        &.visible {
+          margin-top: 6px;
+          transform: rotate(-45deg);
+        }
+
+        &.hidden {
+          margin-top: -6px;
+          transform: rotate(135deg);
+        }
+      }
+    }
+
+    .chooseinputmethod {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      input {
+        display: none;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1px 10px;
+        font-weight: 600;
+        font-size: 0.8em;
+        width: 140px;
+        height: 35px;
+        background-color: white;
+        cursor: pointer;
+
+        &.checked {
+          color: white;
+          background-color: dodgerblue;
+        }
+
+        $radius: 3px;
+        &:nth-child(1) {
+          border: 1px solid gray;
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+        }
+        &:nth-child(2) {
+          border: 1px solid gray;
+          border-left: 0px;
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+        }
+
+        &:hover {
+          opacity: 0.8;
+          filter: brightness(110%);
+        }
+      }
+    }
+  }
+
+  .rightside {
+    display: flex;
+    column-gap: 10px;
+    flex-grow: 0;
+    white-space: nowrap;
+
+    button {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+      padding: 0 10px;
+      border: 1px solid gray;
+      border-radius: 15px;
+      color: dimgray;
+      font-weight: 600;
+      background-color: white;
+      cursor: pointer;
+
+      transition: color 0.2s, background-color 0.2s;
+      &:hover {
+        color: white;
+        background-color: dodgerblue;
+      }
+    }
+  }
+}

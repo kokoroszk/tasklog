@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .main {
+    position: relative;
+    padding: 10px 34px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+}

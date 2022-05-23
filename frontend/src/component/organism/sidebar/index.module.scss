@@ -1,0 +1,133 @@
+.sidebar {
+  display: flex;
+  width: 50px;
+  min-width: 50px;
+  transition: width 0.1s ease-out, min-width 0.1s ease-out;
+
+  .wrapper {
+    position: fixed;
+    background-color: dodgerblue;
+    height: 100vh;
+    z-index: 10000;
+  }
+
+  .menuitem {
+    display: flex;
+    padding: 5px 10px;
+    justify-content: left;
+    column-gap: 10px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+
+    &:hover,
+    &.selected {
+      background-color: white;
+      color: dodgerblue;
+    }
+
+    &.humbergar {
+      background-color: dodgerblue !important;
+    }
+
+    &.justifyright {
+      display: flex;
+      justify-content: right;
+    }
+  }
+
+  .menutext {
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+    font-weight: bolder;
+    transform: translateX(-64px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  &.opened {
+    width: 230px;
+    min-width: 230px;
+    .menutext {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .menuitem {
+      width: 230px;
+      transition: width 0.2s;
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  margin: auto 2px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  .inner,
+  .inner::before,
+  .inner::after {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    transition-duration: 0.15s;
+    transition-property: width, transform;
+    transition-timing-function: ease-in-out;
+    content: '';
+  }
+
+  .inner {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .inner::before {
+    top: -8px;
+  }
+  .inner::after {
+    top: 8px;
+  }
+
+  .menuitem:hover & .inner::before,
+  .menuitem:hover & .inner::after {
+    width: 16px;
+    will-change: width, transform;
+  }
+
+  .opened .menuitem:hover & {
+    .inner::before {
+      transform: translateY(13px) translateX(-4px) rotate(45deg);
+    }
+    .inner::after {
+      transform: translateY(-13px) translateX(-4px) rotate(-45deg);
+    }
+  }
+
+  .menuitem:hover & {
+    .inner::before {
+      transform: translateY(13px) translateX(7px) rotate(-45deg);
+    }
+    .inner::after {
+      transform: translateY(-13px) translateX(7px) rotate(45deg);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 23px;
+
+  .left,
+  .right {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    height: inherit;
+  }
+
+  .right {
+    position: absolute;
+    right: 10px;
+
+    .dueDate {
+      color: red;
+    }
+    .issueStatus {
+      width: 100px;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.button {
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 3px 20px;
+  min-width: 110px;
+  width: inherit;
+
+  font-weight: 600;
+  font-size: 0.9em;
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 0.2s;
+
+  @mixin color1($background, $font, $hovered) {
+    background-color: $background;
+    color: $font;
+    &:hover {
+      border-color: $font;
+      background-color: $hovered;
+      box-shadow: 0 0 2px dodgerblue;
+    }
+  }
+
+  @mixin color2($default: dodgerblue, $hovered: white) {
+    background-color: $default;
+    color: $hovered;
+    &:hover {
+      color: $default;
+      border-color: $default;
+      background-color: $hovered;
+      box-shadow: 0 0 2px $hovered;
+    }
+  }
+
+  &.white {
+    @include color1(white, dodgerblue, rgb(150, 255, 255, 0.1));
+  }
+
+  &.gray {
+    @include color1(rgb(169, 169, 169, 0.2), black, white);
+  }
+
+  &.blue {
+    @include color2(dodgerblue, white);
+  }
+}

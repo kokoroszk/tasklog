@@ -1,0 +1,91 @@
+.results {
+  font-size: 0.9em;
+  padding-top: 20px;
+  table {
+    min-width: 100%;
+    background-color: white;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  tr {
+    cursor: pointer;
+    &:nth-child(odd) {
+      background-color: white;
+    }
+
+    &:nth-child(even) {
+      background-color: rgb(211, 211, 211, 0.4);
+    }
+
+    &:hover {
+      background-color: rgb(255, 255, 0, 0.1);
+    }
+  }
+
+  th,
+  td {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 8px 10px;
+  }
+
+  th {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    font-weight: 500;
+    color: dodgerblue;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(30, 144, 255, 0.1);
+    }
+  }
+
+  td {
+    border-top: 1px solid gray;
+
+    &.kind {
+      width: 120px;
+      min-width: 120px;
+    }
+    &.status {
+      width: 80px;
+      min-width: 80px;
+    }
+    &.title {
+      min-width: 300px;
+      text-align: start;
+    }
+    &.id {
+      color: dodgerblue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.ordericon {
+  position: absolute;
+  right: 3px;
+  border-radius: 3px;
+
+  &.true {
+    top: 20%;
+    border: 7px solid transparent;
+    border-bottom: 8px solid dodgerblue;
+  }
+
+  &.false {
+    top: 35%;
+    border: 7px solid transparent;
+    border-top: 8px solid dodgerblue;
+  }
+}

@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  font-size: 0.9em;
+}
+
+.detailHeader {
+  display: flex;
+  column-gap: 10px;
+
+  .userIcon {
+    height: 45px;
+    width: 45px;
+  }
+
+  .createdBy {
+    font-weight: 600;
+  }
+  .createdAt {
+    color: gray;
+  }
+}

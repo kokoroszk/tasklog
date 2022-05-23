@@ -1,0 +1,44 @@
+query issueDetail($issueId: Int!) {
+  issues(issueIds: [$issueId]) {
+    id
+    kind
+    title
+    description
+    status
+    assignee {
+      id
+      name
+    }
+    projectId
+    dueDate
+    createdAt
+    updatedAt
+    createdBy {
+      id
+      name
+    }
+    categories {
+      id
+      name
+    }
+    changeLogs {
+      id
+      comment
+      dueDate
+      createdAt
+      status
+      assignee {
+        id
+        name
+      }
+      project {
+        id
+        name
+      }
+      createdBy {
+        id
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+query projectChangeLogs {
+  projectChangeLogs {
+    id
+    kind
+    issue {
+      id
+      title
+    }
+    comment
+    dueDate
+    assignee {
+      id
+      name
+    }
+    project {
+      id
+      name
+    }
+    status
+    createdAt
+    createdBy {
+      id
+      name
+    }
+  }
+}

@@ -1,0 +1,11 @@
+query currentUserInfo {
+  currentUser {
+    id
+    name
+    icon
+    project {
+      id
+      name
+    }
+  }
+}

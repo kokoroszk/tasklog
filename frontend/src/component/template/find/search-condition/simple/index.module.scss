@@ -1,0 +1,26 @@
+.simpleconditions {
+  padding: 10px 0;
+  transition: opacity 0.5s;
+
+  &.hidden {
+    opacity: 0;
+    height: 0px;
+    visibility: hidden;
+  }
+
+  .row {
+    display: flex;
+    column-gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .assingtomyself {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+
+    &:hover {
+      color: dodgerblue;
+    }
+  }
+}

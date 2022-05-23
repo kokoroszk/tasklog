@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 60px;
+
+  .left {
+    flex-grow: 1;
+    min-width: 400px;
+    margin-bottom: 50px;
+  }
+
+  .right {
+    width: 360px;
+    max-width: 360px;
+  }
+
+  @media screen and (max-width: 955px) {
+    .right {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+  }
+}

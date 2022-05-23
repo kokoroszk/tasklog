@@ -1,0 +1,21 @@
+overwrite: true
+schema:
+  - ./graphql/schema.gql
+documents:
+  - ./graphql/queries/*.gql
+  - ./graphql/mutations/*.gql
+generates:
+  ./src/client/gen/index.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    scalars:
+      DateTime: DateTime
+    config:
+      withComponent: false
+      withHooks: true
+      withHOC: false
+  ./graphql/schema.json:
+    plugins:
+      - introspection

@@ -1,0 +1,29 @@
+.status {
+  display: flex;
+  padding: 20px 0;
+  column-gap: 7px;
+  font-size: 0.9em;
+
+  .title {
+    font-weight: 600;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 10px;
+    cursor: pointer;
+  }
+
+  label:hover,
+  input:checked + label {
+    background-color: dodgerblue;
+    border-radius: 10px;
+    color: white;
+  }
+}

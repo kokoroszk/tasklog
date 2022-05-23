@@ -1,0 +1,144 @@
+.commentArea {
+  font-size: 0.9em;
+  .header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    .right {
+      position: absolute;
+      right: 10px;
+      display: flex;
+      column-gap: 5px;
+      align-items: center;
+
+      .filter {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        .label {
+          font-weight: 600;
+        }
+        .item {
+          border: 1px sold gray;
+          border-radius: 15px;
+          padding: 2px 8px;
+          cursor: pointer;
+          &.selected {
+            background-color: dodgerblue;
+            color: white;
+          }
+          &:hover {
+            background-color: rgb(30, 144, 255, 0.6);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.unfold {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+
+  background-color: white;
+
+  &:hover {
+    background-color: dodgerblue;
+  }
+  &:hover .icon {
+    color: white;
+  }
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.commentItem {
+  // XXX content-cardのpaddingの現在値に依存している
+  &.preview {
+    background-color: rgb(31, 143, 255, 0.2);
+    margin: -18px;
+    padding: 18px;
+    border-top: 1px solid darkgray;
+    box-shadow: -1px -1px 1px rgb(0 0 0 / 28%);
+  }
+
+  .header {
+    display: flex;
+    column-gap: 10px;
+
+    .userIcon {
+      height: 45px;
+      width: 45px;
+    }
+
+    .info {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: -5px;
+      cursor: pointer;
+      .createdBy {
+        font-weight: 600;
+      }
+      .createdAt {
+        position: absolute;
+        overflow: hidden;
+        color: gray;
+        width: 100%;
+        display: inline-block;
+        align-items: center;
+        font-weight: 200;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.8em;
+
+        .content {
+          color: black;
+          display: none;
+        }
+        &.fold .content {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  & > .content {
+    padding-left: 50px;
+    height: 100%;
+
+    &.fold {
+      visibility: hidden;
+      height: 0px;
+    }
+  }
+  ul {
+    font-size: 0.8em;
+    list-style: none;
+  }
+}
+
+.arrow::before {
+  left: 4px;
+  box-sizing: border-box;
+  width: 4px;
+  height: 4px;
+  border: 4px solid transparent;
+  border-left: 4px solid #7a0;
+}
+.arrow::after {
+  left: 0;
+  width: 6px;
+  height: 4px;
+  border-left: 4px solid #7a0;
+}

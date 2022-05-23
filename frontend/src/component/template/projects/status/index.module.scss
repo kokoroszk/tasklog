@@ -1,0 +1,93 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  font-size: 0.8em;
+
+  .bar {
+    display: flex;
+    width: 100%;
+
+    span {
+      height: 15px;
+    }
+
+    .ready {
+      background-color: palevioletred;
+      &::before {
+        content: '　';
+      }
+    }
+
+    .inprogress {
+      background-color: blue;
+      &::before {
+        content: '　';
+      }
+    }
+
+    .processed {
+      background-color: green;
+      &::before {
+        content: '　';
+      }
+    }
+
+    .done {
+      background-color: goldenrod;
+      &::before {
+        content: '　';
+      }
+    }
+  }
+
+  .percentagetxt {
+    text-align: right;
+  }
+
+  .stat {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    .content {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      .count {
+        text-align: center;
+        color: white;
+        border-radius: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ready {
+  background-color: palevioletred;
+  .bar &::before {
+    content: '　';
+  }
+}
+
+.inprogress {
+  background-color: blue;
+  .bar &::before {
+    content: '　';
+  }
+}
+
+.processed {
+  background-color: green;
+  .bar &::before {
+    content: '　';
+  }
+}
+
+.done {
+  background-color: goldenrod;
+  .bar &::before {
+    content: '　';
+  }
+}

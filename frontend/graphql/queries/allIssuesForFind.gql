@@ -1,0 +1,24 @@
+query allIssuesForFind {
+  issues {
+    id
+    title
+    description
+    dueDate
+    createdAt
+    updatedAt
+    categories {
+      id
+      name
+    }
+    kind
+    status
+    createdBy {
+      id
+      name
+    }
+    assignee {
+      id
+      name
+    }
+  }
+}

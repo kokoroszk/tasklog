@@ -1,0 +1,19 @@
+mutation createIssue(
+  $title: String!
+  $description: String!
+  $issueKind: Int!
+  $assigneeId: String
+  $dueDate: DateTime
+  $issueCategories: [Int!]!
+) {
+  createIssue(
+    title: $title
+    description: $description
+    issueKind: $issueKind
+    assigneeId: $assigneeId
+    dueDate: $dueDate
+    issueCategories: $issueCategories
+  ) {
+    id
+  }
+}

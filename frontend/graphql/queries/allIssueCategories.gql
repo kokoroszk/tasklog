@@ -1,0 +1,6 @@
+query allIssueCategories {
+  issueCategories {
+    id
+    name
+  }
+}

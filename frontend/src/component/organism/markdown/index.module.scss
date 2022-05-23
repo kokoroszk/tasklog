@@ -1,0 +1,72 @@
+.editor {
+  height: inherit;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.previewMarkdown {
+  line-height: 30px;
+  @mixin header($marginTop, $marginBottom, $bordersize) {
+    margin: $marginTop 0 $marginBottom;
+    padding: 5px 0;
+    border-bottom: $bordersize solid dodgerblue;
+  }
+  @mixin header2($margin) {
+    margin: $margin 0;
+  }
+
+  h1 {
+    @include header(10px, 24px, 3px);
+  }
+  h2 {
+    @include header(20px, 20px, 2px);
+  }
+  h3 {
+    @include header2(16px);
+  }
+  h4 {
+    @include header2(14px);
+  }
+  h5 {
+    @include header2(13px);
+  }
+  h6 {
+    @include header2(12px);
+  }
+
+  a {
+    color: dodgerblue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  ol {
+    margin-left: 18px;
+  }
+
+  table {
+    line-height: 20px;
+    border: 1px solid gray;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead {
+      background-color: rgb(30, 144, 255, 0.2);
+    }
+
+    tbody {
+      background-color: white;
+    }
+    th,
+    td {
+      padding: 5px;
+      border: 1px solid gray;
+      height: 1em;
+    }
+  }
+}

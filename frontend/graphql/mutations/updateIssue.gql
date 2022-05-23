@@ -1,0 +1,11 @@
+mutation updateIssue($issueId: Int!, $issueStatus: Int!, $assigneeId: String, $comment: String!, $dueDate: DateTime) {
+  updateIssue(
+    issueId: $issueId
+    issueStatus: $issueStatus
+    assigneeId: $assigneeId
+    comment: $comment
+    dueDate: $dueDate
+  ) {
+    id
+  }
+}

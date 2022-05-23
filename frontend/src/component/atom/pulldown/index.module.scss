@@ -1,0 +1,136 @@
+.pulldown {
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+
+  .select {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    position: relative;
+  }
+
+  .button {
+    padding: 5px 12px;
+    height: 35px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+
+    $icon-color: gray;
+    $hover-color: dodgerblue;
+    .icon:hover.icon.clear::before,
+    .icon:hover.icon.clear::after {
+      filter: brightness(120%);
+      opacity: 0.8px;
+    }
+
+    &:hover .icon.triangle {
+      border-top-color: $hover-color;
+    }
+
+    &.open {
+      background-color: rgb(255, 250, 205, 0.8);
+      border: 1px solid dodgerblue;
+      box-shadow: 0 0 3px dodgerblue;
+    }
+
+    .icon {
+      text-align: left;
+      &.clear {
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: 2px;
+          height: 13px;
+          right: 15px;
+          background: $icon-color;
+        }
+
+        &::before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &::after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      &.triangle {
+        position: absolute;
+        top: 35%;
+        right: 10px;
+        border: 7px solid transparent;
+        border-top: 8px solid $icon-color;
+        border-radius: 3px;
+        .button:hover &,
+        &.open {
+          border-top: 8px solid $hover-color;
+        }
+      }
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    z-index: 10;
+    top: 36px;
+    row-gap: 5px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.35);
+
+    &.open {
+      visibility: visible;
+    }
+
+    .searcharea {
+      display: flex;
+      align-items: center;
+      position: relative;
+      .searchinput {
+        padding: 6px;
+        padding-left: 30px;
+        width: 100%;
+        border: 1px solid;
+      }
+      .searchicon {
+        position: absolute;
+        left: 6px;
+        cursor: pointer;
+      }
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding-left: 10px;
+        cursor: pointer;
+
+        &.selected,
+        &.selected:hover {
+          background-color: rgb(30, 144, 255, 0.2);
+        }
+        &:hover {
+          background-color: rgb(30, 144, 255, 0.1);
+        }
+      }
+    }
+  }
+}
