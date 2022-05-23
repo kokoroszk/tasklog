@@ -10,7 +10,7 @@ export const useSignOutFunction = () => {
     } catch {
       // TODO
     } finally {
-      router.push(`/signIn`);
+      window.location.href = `/signIn`;
     }
   };
 };
