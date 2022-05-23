@@ -76,7 +76,7 @@ class SlickIssueRepo @Inject()(dbProvider: DatabaseConfigProvider)(implicit ec: 
     val query = queryBuilder.run(Tables.Issues).value._1
     db.run(query.result).map(_.flatMap(issueEntityToIssueSeq))
   }
-  
+
   private def issueCategoryEntityToIssueCategory(row: Tables.IssueCategoriesRow) = IssueCategory(
     id = row.id,
     name = row.name
@@ -178,10 +178,17 @@ class SlickIssueRepo @Inject()(dbProvider: DatabaseConfigProvider)(implicit ec: 
         createdAt = crrTime, updatedAt = crrTime, createdBy = userId
       )
 
-    val insertChangeLog = (id: Int) => Tables.ChangeLogs += Tables.ChangeLogsRow(
+    val insertCategory = (issueId: Int) =>
+      if (categories.isEmpty) DBIO.successful(())
+      else Tables.XrefIssueIssueCategories ++= categories.map(categoryId => Tables.XrefIssueIssueCategoriesRow(
+        issueId = issueId,
+        categoryId = categoryId,
+      ))
+
+    val insertChangeLog = (issueId: Int) => Tables.ChangeLogs += Tables.ChangeLogsRow(
       id = 0,
       projectId = projectId,
-      issueId = id,
+      issueId = issueId,
       kind = ChangeLogKind.MODIFY.id,
       comment = "",
       status = IssueStatus.READY.id,
@@ -192,9 +199,10 @@ class SlickIssueRepo @Inject()(dbProvider: DatabaseConfigProvider)(implicit ec: 
     )
 
     val action = for {
-      user <- newIssue
-      _ <- insertChangeLog(user.id)
-    } yield user
+      issue <- newIssue
+      _ <- insertChangeLog(issue.id)
+      _ <- insertCategory(issue.id)
+    } yield issue
 
     db.run(action.transactionally).map(Seq(_).flatMap(issueEntityToIssueSeq).headOption)
   }
