@@ -14,6 +14,7 @@ import { SearchPulldown } from 'component/template/find/search-condition/simple/
 import { SearchTextInput } from 'component/template/find/search-condition/simple/parts/input';
 import { useSearchQuery } from 'component/template/find/use-search-condition';
 import { useSearchConditionVisibilityValue } from 'component/template/find/search-condition';
+import { useCurrentUserInfo } from 'client/hooks';
 import { Option } from 'component/atom/pulldown';
 
 interface SimpleSearchProps {
@@ -24,6 +25,7 @@ interface SimpleSearchProps {
 
 const AssignToMyself = () => {
   const { updateQuery } = useSearchQuery();
+  const userInfo = useCurrentUserInfo();
 
   return (
     <MyTooltip title="私が担当" placement="top">
@@ -31,7 +33,7 @@ const AssignToMyself = () => {
         className={styles.assingtomyself}
         onClick={() =>
           updateQuery({
-            assignee: 'testuser1',
+            assignee: userInfo?.id || '',
           })
         }
       />
