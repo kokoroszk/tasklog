@@ -15,8 +15,9 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 class GraphqlController @Inject()(
+  cc: ControllerComponents,
   system: ActorSystem,
-  repo: RepositoryContainer) extends InjectedController {
+  repo: RepositoryContainer) extends AbstractController(cc) {
 
   import system.dispatcher
 

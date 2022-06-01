@@ -60,7 +60,8 @@ scalacOptions += "-Ypartial-unification"
 // Unit test
 libraryDependencies ++= Seq(
   "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0",
-  "org.mockito" %% "mockito-scala" % "1.17.5"
+  "org.scalatestplus" %% "scalacheck-1-16" % "3.2.12.0",
+  "org.mockito" %% "mockito-scala" % "1.17.5",
 ).map(_ % Test)
 
 

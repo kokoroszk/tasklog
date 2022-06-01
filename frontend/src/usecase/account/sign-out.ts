@@ -10,6 +10,7 @@ export const useSignOutFunction = () => {
     } catch {
       // TODO
     } finally {
+      // SPAを再読み込みして状態をリフレッシュしたい
       window.location.href = `/signIn`;
     }
   };
